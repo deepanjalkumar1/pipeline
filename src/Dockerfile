@@ -4,7 +4,9 @@ WORKDIR /githubactions
 
 COPY . /githubactions
 
+RUN pip install --upgrade pip setuptools wheel
 RUN pip install --no-cache-dir -r /githubactions/src/requirements.txt
+RUN pip install --upgrade jaraco.context
 
 EXPOSE 8000
 
