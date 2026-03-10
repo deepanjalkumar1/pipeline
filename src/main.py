@@ -34,7 +34,7 @@ async def greetings(name:str):
             "message":"Greetings : {}".format(name)
         }
     except Exception as e:
-        logging.error("[Error]: Failed to great the organization for name :{}".format(name))
+        logging.error("[Error]: Failed to great the organization for name :{} error message: {}".format(name, e))
         return {
             "message":"Failed to greet the organization"
         }
