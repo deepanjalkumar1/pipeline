@@ -34,4 +34,4 @@ jobs:
         run: sleep 5
 
       - name: Test FastAPI Endpoint
-        run: curl -f http://localhost:8000 || exit 1
+        run: curl -f http://localhost:8000/organization/deepanjal
