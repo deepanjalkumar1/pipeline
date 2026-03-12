@@ -102,10 +102,10 @@ jobs:
 
       - name: Tag Docker Image
         run: |
-          docker tag fastapi-app:latest ${{ steps.login-ecr.outputs.registry }}/fastapi-app:latest
+          docker tag fastapi-app:latest public.ecr.aws/z7g8n0o1/fastapi-app:latest
         
       - name: Push Docker Image
         run: |
-          docker push ${{ steps.login-ecr.outputs.registry }}/fastapi-app:latest
+          docker push public.ecr.aws/z7g8n0o1/fastapi-app:latest
 
   
