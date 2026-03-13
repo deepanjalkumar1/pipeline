@@ -15,21 +15,20 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install kubectl
-        uses: azure/setup-kubectl@v4
+      - name: Deploy to EC2 and Update Kubernetes
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          version: latest
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            echo "Connecting to EC2..."
 
-      - name: Configure kubeconfig
-        run: |
-          mkdir -p $HOME/.kube
-          echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
+            echo "Login to ECR"
+            aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 154845615393.dkr.ecr.ap-south-1.amazonaws.com
 
-      - name: Deploy new image to Kubernetes
-        run: |
-          kubectl set image deployment/fastapi \
-          fastapi=154845615393.dkr.ecr.ap-south-1.amazonaws.com/fastapi-app:${{ github.sha }}
+            echo "Updating Kubernetes Deployment"
+            kubectl set image deployment/fastapi fastapi=154845615393.dkr.ecr.ap-south-1.amazonaws.com/fastapi-app:${{ github.sha }}
 
-      - name: Verify rollout
-        run: |
-          kubectl rollout status deployment/fastapi
+            echo "Checking rollout status"
+            kubectl rollout status deployment/fastapi
