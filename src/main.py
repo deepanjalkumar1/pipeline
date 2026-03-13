@@ -47,9 +47,6 @@ async def landingpageflow():
     
     Arguments:
         None
-
-    
-
     '''
     try:
         logging.info("[Info]: Greetings fellow users")
