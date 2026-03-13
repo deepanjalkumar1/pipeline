@@ -49,11 +49,11 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build --no-cache -t ghcr.io/${{ github.repository_owner }}/fastapi-app:${{ github.sha }} -f src/Dockerfile .
+          docker build --no-cache -t ghcr.io/${{ github.repository_owner }}/fastapi-app:latest -f src/Dockerfile .
 
       - name: Push Docker Image
         run: |
-          docker push ghcr.io/${{ github.repository_owner }}/fastapi-app:${{ github.sha }}
+          docker push ghcr.io/${{ github.repository_owner }}/fastapi-app:latest
 
   trivy-scan:
     needs: push-image-ghcr
@@ -102,14 +102,11 @@ jobs:
 
       - name: Tag Docker Image
         run: |
-          docker tag fastapi-app:latest ${{ steps.login-ecr.outputs.registry }}/fastapi-app:${{ github.sha }}
+          docker tag fastapi-app:latest ${{ steps.login-ecr.outputs.registry }}/fastapi-app:latest
         
       - name: Push Docker Image
         run: |
-          docker push ${{ steps.login-ecr.outputs.registry }}/fastapi-app:${{ github.sha }}
+          docker push ${{ steps.login-ecr.outputs.registry }}/fastapi-app:latest
 
-      - name: Set Image Tag Output
-        id: image-tag
-        run: echo "image_tag=${{ github.sha }}" >> $GITHUB_OUTPUT
 
   
