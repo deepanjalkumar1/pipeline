@@ -108,4 +108,8 @@ jobs:
         run: |
           docker push ${{ steps.login-ecr.outputs.registry }}/fastapi-app:${{ github.sha }}
 
+      - name: Set Image Tag Output
+        id: image-tag
+        run: echo "image_tag=${{ github.sha }}" >> $GITHUB_OUTPUT
+
   
