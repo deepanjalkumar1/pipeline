@@ -39,6 +39,27 @@ async def greetings(name:str):
             "message":"Failed to greet the organization"
         }
 
+
+@app.get("/")
+async def landingpageflow():
+    '''
+    landingpageflow() -> this function returns the greeting message to fellow user if ran successfully, else please try again message
+    
+    Arguments:
+        None
+         
+    '''
+    try:
+        logging.info("[Info]: Greetings fellow users")
+        return {
+            "message": "Greetings fellow user"
+        }
+    except Exception as e:
+        logging.error("[Error]: Failed to greet the fellow users")
+        return {
+            "message": "Sorry something went wrong please try again"
+        }
+
 '''
 For debug and development purpose
 if __name__=="__main__":
