@@ -62,3 +62,7 @@ async def landingpageflow():
             "message": "Sorry something went wrong please try again"
         }
 
+'''
+We will be using uvicorn for running the server
+
+'''
