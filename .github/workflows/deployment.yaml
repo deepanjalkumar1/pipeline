@@ -28,7 +28,7 @@ jobs:
             aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 154845615393.dkr.ecr.ap-south-1.amazonaws.com
 
             echo "Updating Kubernetes Deployment"
-            kubectl set image deployment/fastapi fastapi=154845615393.dkr.ecr.ap-south-1.amazonaws.com/fastapi-app:${{ github.sha }}
+            kubectl set image deployment/fastapi fastapi=154845615393.dkr.ecr.ap-south-1.amazonaws.com/fastapi-app:${{ github.event.workflow_run.head_sha }}
 
             echo "Checking rollout status"
             kubectl rollout status deployment/fastapi
