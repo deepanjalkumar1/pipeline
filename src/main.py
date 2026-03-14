@@ -10,7 +10,7 @@ logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S',
-    filename='myapp.log', # Log to a file
+    filename='/logs/myapp.log', # Log to a file
     filemode='a'           # Append to the log file (default)
 )
 
