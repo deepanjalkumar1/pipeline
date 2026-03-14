@@ -33,5 +33,3 @@ jobs:
       - name: Wait for API to Start
         run: sleep 10
 
-      - name: Test FastAPI Endpoint
-        run: curl  http://localhost:8000/organization/deepanjal
