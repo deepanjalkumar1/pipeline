@@ -40,7 +40,7 @@ async def greetings(name:str):
         }
 
 
-@app.get("/")
+@app.get("/home")
 async def landingpageflow():
     '''
     landingpageflow() -> this function returns the greeting message to fellow user if ran successfully, else please try again message
