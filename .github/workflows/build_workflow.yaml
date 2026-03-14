@@ -31,5 +31,8 @@ jobs:
           fi
 
       - name: Wait for API to Start
-        run: sleep 10
+        run: sleep 5
+
+      - name: Making curl request to default endpoint
+        run: curl -f http://localhost:8000/
 

@@ -11,7 +11,7 @@ logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S',
-    filename='/logs/myapp.log', # Log to a file
+    filename='myapp.log', # Log to a file
     filemode='a'           # Append to the log file (default)
 )
 
@@ -41,7 +41,7 @@ async def greetings(name:str):
         }
 
 
-@app.get("/home")
+@app.get("/")
 async def landingpageflow():
     '''
     landingpageflow() -> this function returns the greeting message to fellow user if ran successfully, else please try again message
