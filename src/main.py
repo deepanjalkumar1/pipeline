@@ -9,10 +9,9 @@ import logging, uvicorn
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[logging.StreamHandler(sys.stdout)]
-    #datefmt='%Y-%m-%d %H:%M:%S',
-    #filename='/githubactions/src/logs/myapp.log', # Log to a file
-    #filemode='a'           # Append to the log file (default)
+    datefmt='%Y-%m-%d %H:%M:%S',
+    filename='/githubactions/src/logs/myapp.log', # Log to a file
+    filemode='a'           # Append to the log file (default)
 )
 
 load_dotenv()
