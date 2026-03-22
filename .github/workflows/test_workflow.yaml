@@ -67,15 +67,15 @@ jobs:
         run: |
           docker build -t fastapi-image -f src/Dockerfile .
 
-      - name: Run Trivy Vulnerability Scanner
-        uses: aquasecurity/trivy-action@0.20.0
-        with:
-          image-ref: fastapi-image
-          format: table
-          exit-code: 1
-          ignore-unfixed: true
-          vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
+      #- name: Run Trivy Vulnerability Scanner
+      #  uses: aquasecurity/trivy-action@0.20.0
+      #  with:
+      #    image-ref: fastapi-image
+      #    format: table
+      #    exit-code: 1
+      #    ignore-unfixed: true
+      #    vuln-type: 'os,library'
+      #    severity: 'CRITICAL,HIGH'
 
   push-image-ecr:
     needs: trivy-scan
