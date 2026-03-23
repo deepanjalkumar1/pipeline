@@ -4,8 +4,6 @@ WORKDIR /githubactions
 
 COPY . /githubactions
 
-RUN mkdir -p /githubactions/src/logs
-
 RUN pip install --upgrade pip setuptools wheel \
     && pip install --no-cache-dir -r /githubactions/src/requirements.txt \
     && pip install --upgrade jaraco.context
