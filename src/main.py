@@ -10,10 +10,8 @@ logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S',
-    filename='/githubactions/src/logs/myapp.log', # Log to a file
-    filemode='a'           # Append to the log file (default)
+    stream=sys.stdout    # stdout — Promtail picks this up automatically
 )
-
 load_dotenv()
 app=FastAPI()
 
