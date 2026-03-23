@@ -5,7 +5,7 @@ Description: Testing github action pipeline capabilities and flow analysis
 '''
 from fastapi import FastAPI
 from dotenv import load_dotenv
-import logging, uvicorn
+import logging, uvicorn, sys
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
