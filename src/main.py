@@ -52,7 +52,7 @@ async def landingpageflow():
             "message": "Greetings fellow user"
         }
     except Exception as e:
-        logging.error("[Error]: Failed to greet the fellow users")
+        logging.error("[Error]: Failed to greet the fellow users for reason : {}".format(e))
         return {
             "message": "Sorry something went wrong please try again"
         }
